@@ -1,0 +1,27 @@
+<%- include('partials/header', { title: 'Crear Usuario' }) %>
+  <h1>Crear Nuevo Usuario</h1>
+  <form action="/crear-usuario" method="POST">
+    <div class="form-group">
+      <label for="usuario">Usuario:</label>
+      <input type="text" id="usuario" name="usuario" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="apellido">Apellido:</label>
+      <input type="text" id="apellido" name="apellido" class="form-control" required>
+    </div>
+    <div class="form-group">
+      <label for="id_perfil">Perfil:</label>
+      <select id="id_perfil" name="id_perfil" class="form-control" required>
+        <% perfiles.forEach(perfil => { %>
+          <option value="<%= perfil.id %>"><%= perfil.descripcion %></option>
+        <% }); %>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Crear Usuario</button>
+  </form>
+  <a href="/">Volver al inicio</a>
+<%- include('partials/footer') %>
